@@ -1,0 +1,31 @@
+[tools]
+trunk = "1.3.4"
+hugo = "0.156.0"
+node = "20.20.0"
+
+[tasks.lint]
+run = "trunk check"
+
+[tasks.fmt]
+run = "trunk fmt"
+
+[tasks.test]
+depends = ["test:*"]
+
+[tasks."test:build"]
+run = "hugo"
+
+[tasks.codegen]
+depends = ["codegen:*"]
+
+[tasks."codegen:dummy"]
+run = "echo 'No codegen tasks'"
+
+[tasks.install]
+depends = ["install:*"]
+
+[tasks."install:dummy"]
+run = "echo 'No dependencies to install'"
+
+[tasks.ci]
+depends = ["lint", "test"]
