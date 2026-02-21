@@ -25,6 +25,12 @@ lint:
     - checkov
     - git-diff-check
     - trufflehog
+  ignore:
+    - linters: [ALL]
+      paths:
+        - public/
+        - resources/
+        - .hugo_build.lock
 actions:
   enabled:
     - trunk-upgrade-available
